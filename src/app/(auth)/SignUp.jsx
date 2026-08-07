@@ -1,10 +1,10 @@
 import { Link, useRouter } from "expo-router";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Logo from "../images/dinetimelogo.png";
-import frameImage from "../images/Frame.png";
+import Logo from "../../images/dinetimelogo.png";
+import frameImage from "../../images/Frame.png";
 
-export default function HomeScreen() {
+export default function SignUp() {
   const router = useRouter();
   return (
     <>
