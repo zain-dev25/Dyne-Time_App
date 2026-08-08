@@ -1,10 +1,32 @@
 import Entypo from "@expo/vector-icons/Entypo";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { NavigationBar } from "expo-navigation-bar";
 import { Tabs } from "expo-router";
+import { useEffect } from "react";
+import { Platform } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const tabLayout = ({ children }) => {
+const tabLayout = () => {   
+      console.log(Platform.OS);
+//    useEffect(() => {
+//     const hideAndroidButtons = async () => {
+//       // Pehle check karein ke hum Android par hain aur library load hui hai
+//       if (Platform.OS === 'android' && NavigationBar && typeof NavigationBar.setVisibilityAsync === 'function') {
+//         try {
+//           await NavigationBar.setVisibilityAsync('hidden');
+//           await NavigationBar.setBehaviorAsync('sticky-immersive');
+//         } catch (error) {
+//           console.log("Nav bar hide karne me masla aaya:", error);
+//         }
+//       } else if (Platform.OS === 'android') {
+//         console.warn("expo-navigation-bar ke native functions undefined hain. Rebuild lazmi hai!");
+//       }
+//     };
+
+//     hideAndroidButtons();
+//   }, []);
   return (
+    
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: "#f49b33",

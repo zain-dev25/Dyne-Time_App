@@ -5,6 +5,7 @@ import Logo from "../images/dinetimelogo.png";
 import frameImage from "../images/Frame.png";
 
 export default function HomeScreen() {
+   
   const router = useRouter();
   return (
     <>
