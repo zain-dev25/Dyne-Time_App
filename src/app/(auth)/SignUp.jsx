@@ -1,5 +1,12 @@
 import { Link, useRouter } from "expo-router";
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Logo from "../../images/dinetimelogo.png";
 import frameImage from "../../images/Frame.png";
@@ -7,10 +14,14 @@ import { Formik } from "formik";
 import { authSchema } from "../../../utils/authScheema";
 
 export default function SignUp() {
-  const handleSignUp=()=>{
-    // Handle sign up logic here
-  }
   const router = useRouter();
+  const handleSignUp = () => {
+    // Handle sign up logic here
+  };
+  const handleSignIn = () => {
+    router.push("/(auth)/SignIn");
+  };
+  
   return (
     <>
       <SafeAreaView style={style.container}>
@@ -25,50 +36,62 @@ export default function SignUp() {
         {/*  Inputs */}
 
         <Formik
-          initialValues={{ email: '', password: '' }}
+          initialValues={{ email: "", password: "" }}
           validationSchema={authSchema}
           onSubmit={(handleSignUp) => {
             // router.push('/(auth)/SignIn');
           }}
         >
-          {({ handleChange, handleBlur, handleSubmit, values,errors , touched }) => (
+          {({
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            values,
+            errors,
+            touched,
+          }) => (
             <View style={{ marginTop: 20 }}>
               <Text style={style.text2}>Email</Text>
               <TextInput
-                placeholder="Enter Your Email" 
+                placeholder="Enter Your Email"
                 placeholderTextColor="white"
-                onChangeText={handleChange('email')}
-                onBlur={handleBlur('email')}
+                onChangeText={handleChange("email")}
+                onBlur={handleBlur("email")}
                 keyboardType="email-address"
                 value={values.email}
                 style={style.input}
               />
-              <Text style={{ color: 'red', marginTop: 5 }}>{errors.email && touched.email && errors.email}</Text>
-            
-            
+              <Text style={{ color: "red", marginTop: 5 }}>
+                {errors.email && touched.email && errors.email}
+              </Text>
+
               <Text style={style.text2}>Password</Text>
               <TextInput
                 placeholder="Enter Your Password"
                 placeholderTextColor="white"
                 secureTextEntry
-                onChangeText={handleChange('password')}
-                onBlur={handleBlur('password')}
+                onChangeText={handleChange("password")}
+                onBlur={handleBlur("password")}
                 value={values.password}
                 style={style.input}
               />
-              <Text style={{ color: 'red', marginTop: 2 }}>{errors.password && touched.password && errors.password}</Text>
+              <Text style={{ color: "red", marginTop: 2 }}>
+                {errors.password && touched.password && errors.password}
+              </Text>
               <TouchableOpacity onPress={handleSubmit}>
                 <Text style={style.signup}>Sign Up</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={handleSubmit}>
-                <Text style={style.signin}>Sign In</Text>
+              <TouchableOpacity onPress={handleSignIn}
+              
+              >
+                <Text   style={style.alreadyAccount}>
+                  Already have an account?
+                  <Text style={style.signin}> Sign In</Text>{" "}
+                </Text>
               </TouchableOpacity>
             </View>
           )}
-
-
         </Formik>
-
 
         {/* OR */}
         <View style={style.orSection}>
@@ -83,8 +106,12 @@ export default function SignUp() {
             {" "}
             Be a{" "}
             <Link
-              href="/(auth)/SignIn"
-              style={{ color: "#f49b33",textDecorationLine: "underline", fontWeight: "bold" }}
+              href="#"
+              style={{
+                color: "#f49b33",
+                textDecorationLine: "underline",
+                fontWeight: "bold",
+              }}
             >
               Guest User
             </Link>
@@ -95,7 +122,6 @@ export default function SignUp() {
         <View>
           <Image source={frameImage} style={style.frameImage} />
         </View>
-
       </SafeAreaView>
     </>
   );
@@ -142,7 +168,6 @@ const style = StyleSheet.create({
     backgroundColor: "#2b2b2b",
     textAlign: "left",
     paddingLeft: 15,
-    
   },
   button: {
     borderRadius: 5,
@@ -178,24 +203,20 @@ const style = StyleSheet.create({
     position: "absolute",
     bottom: -130,
   },
-  signup:{
-    color: 'white',
-    textAlign: 'center',
+  signup: {
+    color: "white",
+    textAlign: "center",
     padding: 10,
-    backgroundColor: '#f49b33',
+    backgroundColor: "#f49b33",
     borderRadius: 5,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginTop: 20,
-    marginBottom: 10,
-    
+    marginBottom: 5,
   },
-  signin:{
-    color: '#f49b33',
-    textAlign: 'center',
+  signin: {
+    color: "#f49b33",
+    textAlign: "center",
     padding: 10,
-    borderRadius: 5,
-    fontWeight: 'bold',
-    borderColor: '#f49b33',
-    borderWidth: 1,
-  }
+    fontWeight: "bold",
+  },
 });
