@@ -25,7 +25,7 @@ export default function HomeScreen() {
 
           
           <TouchableOpacity
-            onPress={() => router.push("#")}
+            onPress={() => router.push("/(tab)/Home")}
           >
             <Text style={style.text2}> Guest User</Text>
           </TouchableOpacity>
