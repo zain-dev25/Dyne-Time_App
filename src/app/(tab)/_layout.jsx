@@ -31,12 +31,11 @@ const tabLayout = () => {
       screenOptions={{
         tabBarActiveTintColor: "#f49b33",
         tabBarInactiveTintColor: "#f4f4f47f",
-        tabBarStyle: {
-            backgroundColor:"#2b2b2b",
-        },
-        headerShown: true,
+        tabBarStyle: {backgroundColor:"#2b2b2b",},
+        tabBarHideOnKeyboard:true,
+        headerShown: false,
         headerStyle: {
-            backgroundColor:"#1e1d1d",
+            backgroundColor:"#2b2b2b",
         },
         headerTitleStyle: {
             color:"#f49b33",
